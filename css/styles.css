@@ -1,0 +1,143 @@
+/* =============================================================================
+  #RESET
+============================================================================= */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0;margin:0 0 1em}
+
+
+/* =============================================================================
+  #TOOLS
+============================================================================= */
+html { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*, *:before, *:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; }
+
+
+/* =============================================================================
+  #GENERAL
+============================================================================= */
+* {
+    font-family: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+html {
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: #ffffff;
+}
+
+
+/* =============================================================================
+  #IMAGES
+============================================================================= */
+img {
+  max-width: 100%;
+  font-style: italic;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+img[width],
+img[height] {
+  max-width: none;
+}
+
+
+/* =============================================================================
+  #WRAPPER
+============================================================================= */
+.wrapper {
+  width: 340px;
+  margin: 10vh;
+  height: 80vh;
+
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .15);
+}
+
+/* =============================================================================
+  #CHAT
+============================================================================= */
+.chat-widget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+}
+
+
+.chat-box {
+  flex-basis: 100%;
+  overflow: hidden;
+
+  background-color: #f4f4f4;
+}
+
+
+
+/* List of all messages in a conversation */
+.chat-box-messagelist {
+  height: calc(100% - 100px);
+  overflow: auto;
+  padding: 10px;
+}
+
+  .chat-box-message {
+    padding: 10px;
+
+    color: #ffffff;
+
+    background-color: blue;
+    border-radius: 4px;
+  }
+
+  .chat-box-message + .chat-box-message {
+    margin-top: 10px;
+  }
+
+
+
+/* Message input - used to send a message */
+.chat-box-input {
+  overflow: hidden;
+  display: flex;
+  height: 100px;
+  padding: 10px;
+}
+
+  .chat-box-input textarea {
+    display: block;
+    resize: none;
+    width: 100%;
+    padding: 10px;
+
+    border-radius: 4px 0 0 4px;
+    border-top: 1px solid #cccccc;
+    border-right: none;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    outline: none;
+  }
+
+  .chat-box-input button {
+    flex-basis: 80px;
+
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    border: none;
+    outline: none;
+    background-color: blue;
+  }
