@@ -87,56 +87,104 @@ img[height] {
 }
 
 
+.chat-desc {
+  padding: 10px;
+}
+
 
 /* List of all messages in a conversation */
 .chat-box-messagelist {
   height: calc(100% - 100px);
   overflow: auto;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
-  .chat-box-message {
+.chat-box-message {
+    position: relative;
     padding: 10px;
-
-    color: #ffffff;
-
-    background-color: blue;
-    border-radius: 4px;
+    width: calc(100% - 40px);
+    border-radius: 6px;
   }
 
   .chat-box-message + .chat-box-message {
     margin-top: 10px;
   }
 
+  .chat-box-message.incoming {
+    color: #ffffff;
+
+    border-top-left-radius: 0;
+    background-color: blue;
+  }
+
+  .chat-box-message.outgoing {
+    margin-left: auto;
+
+    color: #ffffff;
+
+    border-top-right-radius: 0;
+    background-color: orange;
+  }
+
+  /* Arrow marker */
+  .chat-box-message::before {
+    content: "";
+    position: absolute;
+    top: 0;
+
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+
+  .chat-box-message.incoming::before {
+    right: 100%;
+
+    border-top-color: blue;
+    border-right-color: blue;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  .chat-box-message.outgoing::before {
+    left: 100%;
+
+    border-top-color: orange;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: orange;
+  }
+
 
 
 /* Message input - used to send a message */
 .chat-box-input {
-  overflow: hidden;
   display: flex;
   height: 100px;
   padding: 10px;
 }
 
   .chat-box-input textarea {
-    display: block;
     resize: none;
+    height: 100%;
     width: 100%;
     padding: 10px;
+    flex-grow: 0;
 
-    border-radius: 4px 0 0 4px;
-    border-top: 1px solid #cccccc;
-    border-right: none;
-    border-bottom: 1px solid #cccccc;
-    border-left: 1px solid #cccccc;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
     outline: none;
   }
 
   .chat-box-input button {
-    flex-basis: 80px;
+    margin-left: 5px;
+    height: 50px;
+    flex: 0 0 50px;
+    align-self: center;
 
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
+    border-radius: 50%;
     border: none;
     outline: none;
     background-color: blue;
