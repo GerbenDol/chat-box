@@ -30,6 +30,9 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: space-around;
+  
     font-family: Helvetica, Arial, Verdana, sans-serif;
     color: #000000;
     font-size: 16px;
@@ -62,11 +65,146 @@ img[height] {
 ============================================================================= */
 .wrapper {
   width: 340px;
-  margin: 10vh;
-  height: 80vh;
+  height: 100vh;
 
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .15);
 }
+
+
+/* =============================================================================
+  #USER LIST
+============================================================================= */
+.user-widget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+}
+
+.user-desc {
+  padding: 10px;
+}
+
+
+/* Wrap scrollable list of users */
+.user-list {
+  flex-basis: 100%;
+  overflow-y: scroll;
+  padding: 5px;
+
+  background-color: #f4f4f4;
+}
+
+
+/* Single user item */
+.user-wrapper {
+  overflow-y: hidden;
+  position: relative;
+  padding: 10px;
+
+  line-height: 1.2;
+
+  border-radius: 6px;
+  background-color: transparent;
+
+  transition: background-color 150ms ease-in-out;
+}
+
+.user-wrapper + .user-wrapper {
+  margin-top: 5px;
+}
+
+.user-wrapper:hover {
+  background-color: #dfdfdf;
+}
+
+.user-wrapper .user-name {
+  display: block;
+
+  font-weight: bold;
+}
+
+.user-wrapper .user-meta {
+  font-size: .9em;
+}
+
+/* User status */
+.user-status {
+  position: absolute;
+  z-index: 100;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+
+  background-color: orange;
+  border-radius: 50%;
+}
+
+.user-wrapper.is-online .user-status {
+  background-color: green;
+}
+
+/* User pop-up with extra options */
+.user-popup {
+  border-radius: 6px;
+}
+
+/* User options */
+.user-options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  transition: all 250ms ease-in-out;
+
+  background-color: #dfdfdf;
+}
+
+.user-wrapper:hover .user-options {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+  .user-option {
+    display: block;
+    padding: 8px 6px;
+    flex-grow: 1;
+
+    cursor: pointer;
+
+    font-size: .85em;
+    font-weight: bold;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 550ms ease-in-out, background-color 150ms ease-in-out, color 150ms ease-in-out;
+
+    background-color: #ffffff;
+    border-radius: 3px;
+  }
+
+  .user-wrapper:hover .user-option {
+    opacity: 1;
+  }
+
+  .user-option:hover {
+    color: #ffffff;
+
+    background-color: blue;
+  }
+
+  .user-option + .user-option {
+    margin-left: 5px;
+  }
+
 
 /* =============================================================================
   #CHAT
